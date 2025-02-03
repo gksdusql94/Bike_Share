@@ -87,7 +87,7 @@ plt.show()
 - Optimal λ (alpha) value = 50.0
 - Selected features: summer, winter, temp, hum, windspeed, days_since_2011
   
- **Model Performance:**  
+**Model Performance:**  
 - **Mean Squared Error (MSE):** `644,382`  
 - **R² Score:** `0.831`
   
@@ -105,6 +105,7 @@ r2 = r2_score(day_test['cnt'], test_predictions)
 print("MSE:", mse)
 print("R^2:", r2)
 ```
+
  **LASSO Regression Coefficient Changes**  
 ```python
 import numpy as np
@@ -177,6 +178,18 @@ Findings:
 - As λ (lambda) increases, many coefficients shrink towards zero, eliminating less significant features.
 - The most important features (like temp, windspeed, and hum) remain significant for longer.
 - LASSO Regression effectively reduces complexity, making it a great model for feature selection. 🚀
+
+### 📌 Feature Importance & Individual Prediction Analysis
+
+```python
+test_case = df.loc[123]
+test_case = test_case.to_dict()
+
+ins.effect_plot_with_local_pred(df, cats, test_case, 'cnt')
+```
+![image](https://github.com/user-attachments/assets/6ed3e026-fb8e-4d6f-8476-884f4ff6138a)
+
+
 
 ### 📌 Conclusion  
 
